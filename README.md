@@ -1,24 +1,106 @@
-# README
+## users(admin) テーブル (講師用)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| column            | Type      | Options                 |
+| ----------------- | --------- | ----------------------- |
+| nickname          | string    |null: false              |
+| email             | string    |null: false,unique: true |
+| encrypted_password| string    |null: false              |
+| name              | string    |null: false              |
+| name_kana         | string    |null: false              |
+| birth_date        | string    |null: false              |
+| prefecture_id     | integer   |null: false              |
+| city_block        | string    |null: false              |
+| station           | string    |                         |
 
-Things you may want to cover:
+- has_many :customer
+- has_many :reviews
+- has_many :calenders
+- has_many :reservers
+- has_many :settings
 
-* Ruby version
+*Action Hash*
+- belongs_to_active_hash :prefecture
 
-* System dependencies
 
-* Configuration
+## users(customer) テーブル (生徒用)
 
-* Database creation
+| column            | Type      | Options                     |
+| ----------------- | --------- | --------------------------- |
+| nickname          | string    |null: false                  |
+| email             | string    |null: false,unique: true     |
+| encrypted_password| string    |null: false                  |
+| name              | string    |null: false                  |
+| name_kana         | string    |null: false                  |
+| birth_date        | string    |null: false                  |
+| prefecture_id     | integer   |null: false                  |
+| city_block        | string    |null: false                  |
+| station           | string    |                             |
+| admin             | references|null: false,foreign_key: true|
 
-* Database initialization
+- belongs_to :admin
+- has_many :reviews
+- has_many :reservers
+- has_many :purchases
 
-* How to run the test suite
+*Action Hash*
+- belongs_to_active_hash :prefecture
 
-* Services (job queues, cache servers, search engines, etc.)
+## Reviews テーブル (記録投稿機能)
+| column            | Type      | Options                       |
+| ----------------- | --------- | ----------------------------- |
+| title             | string    | null: false                   |
+| text              | text      | null: false                   |
+| home_work         | text      | null: false                   |
+| information       | text      | null: false                   |
+| customer          | references| null: false,foreign_key: true |
+| admin             | references| null: false,foreign_key: true |
 
-* Deployment instructions
+- belongs_to :admin
+- belongs_to :customer
 
-* ...
+## Calenders テーブル (予定設定機能)
+| column            | Type      | Options                      |
+| ----------------- | --------- | ---------------------------- |
+| time_date_id      | integer   | null: false                  |
+| reserver          | references| null: false,foreign_key: true|
+| admin             | references| null: false,foreign_key: true|
+
+- belongs_to :admin
+- has_many :reservers
+
+## Reserves テーブル (予定登録機能)
+| column            | Type      | Options                      |
+| ----------------- | --------- | ---------------------------- |
+| time_date_id      | integer   | null: false                  |
+| calender          | references| null: false,foreign_key: true|
+| customer          | references| null: false,foreign_key: true|
+
+- belongs_to :admin
+- belongs_to :customer
+- belongs_to :calender
+
+
+## Settings テーブル (購入金額設定機能)
+| column            | Type      | Options                      |
+| ----------------- | --------- | ---------------------------- |
+| level_id          | string    | null: false                  |
+| price             | integer   | null: false                  |
+| admin             | references| null: false,foreign_key: true|
+| purchase          | references| null: false,foreign_key: true|
+
+- belongs_to :admin
+- belongs_to :purchase
+
+*Action Hash*
+- belongs_to_active_hash :level
+
+## Purchases テーブル (購入管理機能)
+| column            | Type      | Options                      |
+| ----------------- | --------- | ---------------------------- |
+| price             | integer   | null: false                  |
+| customer          | references| null: false,foreign_key: true|
+| admin             | references| null: false,foreign_key: true|
+
+- belongs_to :admin
+- belongs_to :customer
+- has_many :setting
