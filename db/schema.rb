@@ -23,9 +23,15 @@ ActiveRecord::Schema.define(version: 2022_01_19_085135) do
   end
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "name", null: false
+    t.string "name_kana", null: false
+    t.date "birth_date", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city_block", null: false
+    t.string "station"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -36,8 +42,15 @@ ActiveRecord::Schema.define(version: 2022_01_19_085135) do
   end
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "name", null: false
+    t.string "name_kana", null: false
+    t.date "birth_date", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city_block", null: false
+    t.string "station"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

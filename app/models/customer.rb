@@ -5,4 +5,14 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :admins, through: :admin_customers
+  with_options presence: true do
+    validates :nickname
+    validates :name
+    validates :name_kana
+    validates :birth_date
+    validates :prefecture_id
+    validates :city_block
+  end
+  extend ActiveHash::Associations::ActiveRecordExtensions 
+  belongs_to :prefecture
 end
