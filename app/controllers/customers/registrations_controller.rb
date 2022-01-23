@@ -9,7 +9,7 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   end
   def create
     @customer = Customer.new(sign_up_params)
-    if @customer.valid?
+    if @customer.save
       redirect_to root_path
     else
       render :new
@@ -54,7 +54,7 @@ class Customers::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:name,:name_kana,:birth_date,:prefecture_id,:city_block,:admin_id])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:name,:name_kana,:birth_date,:prefecture_id,:city_block,:station,:admin_code])
   end
 
   # If you have extra params to permit, append them to the sanitizer.

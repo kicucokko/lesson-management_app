@@ -8,7 +8,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   def create
     @admin = Admin.new(sign_up_params)
     if @admin.save
-      redirect_to root_path
+      redirect_to root_path 
     else
       render :new
     end

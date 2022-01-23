@@ -5,6 +5,12 @@ class Admin < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :customers, through: :admin_customers
+  #//自動生成コード
+  generate_public_uid column: :public_uid
+    validates :unique_code, presence: true, on: :update
+    validates :unique_code, format: { with: /\A[a-z0-9]+\z/i }, on: :update
+    validates :unique_code, length: { minimum: 5, maximum: 12 }, on: :update
+  #自動生成コード//
   with_options presence: true do
     validates :nickname
     validates :name

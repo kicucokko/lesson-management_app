@@ -1,0 +1,30 @@
+<header class='top-page-header'>
+  <% if admin_signed_in? %> 
+   <h1>Teacher Top</h1>
+   <p><%= current_admin.nickname %> さん、こんにちは</p>
+    <%= link_to destroy_admin_session_path,method: :delete, class: 'admin-btn' do %>
+      <span class='admin-btn-text'>sign out</span><br>
+    <% end %>
+  <% elsif customer_signed_in?%> 
+   <h1>Student Top</h1>
+    <p><%= current_customer.nickname %> さん、こんにちは</p>
+    <%= link_to destroy_customer_session_path,method: :delete, class: 'customer-btn' do %>
+      <span class='customer-btn-text'>sign out</span><br>
+    <% end %>
+  <%else%>
+  <h1>Topページ</h1>
+  <p>ゲスト さん、こんにちは</p>
+    <%= link_to new_admin_registration_path, class: 'admin-btn' do %>
+      <span class='admin-btn-text'>講師新規登録はこちら</span><br>
+    <% end %>
+    <%= link_to new_customer_registration_path, class: 'customer-btn' do %>
+      <span class='customer-btn-text'>生徒新規登録はこちら</span><br>
+    <% end %>
+    <%= link_to new_admin_session_path, class: 'admin-btn' do %>
+      <span class='admin-btn-text'>講師ログインページ</span><br>
+    <% end %>
+    <%= link_to new_customer_session_path, class: 'customer-btn' do %>
+      <span class='customer-btn-text'>生徒ログインページ</span><br>
+    <% end %>
+  <% end %>
+</header>

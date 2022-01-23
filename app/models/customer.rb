@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
 
   has_many :admins, through: :admin_customers
   with_options presence: true do
+    validates :admin_code
     validates :nickname
     validates :name
     validates :name_kana

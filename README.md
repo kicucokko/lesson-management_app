@@ -35,6 +35,7 @@
 | prefecture_id     | integer   |null: false                  |
 | city_block        | string    |null: false                  |
 | station           | string    |                             |
+| admin_code        | string    |null:false                   |
 | admin             | references|null: false,foreign_key: true|
 
 - has_many :admins ,thorough: :admin_customers

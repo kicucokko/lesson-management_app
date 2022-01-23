@@ -3,9 +3,18 @@
 <%= form_with model: @customer, url: customer_registration_path, class: 'registration-main', local: true do |f| %>
   <div class='form-wrap'>
   <div class='form-header'>
+   <%= link_to root_path do %>
     <h1 class='form-header-text'>
       アカウント新規登録
     </h1>
+    <% end %>
+  </div>
+  <div class="field">
+    <div class="form-text-wrap">
+      <label class="form-text">担当講師コード</label>
+        <span class="form-text">必須</span>
+    </div>
+    <%= f.text_field :admin_code,autofocus: true, autocomplete: "on"%>
   </div>
   <div class="field">
     <div class='form-text-wrap'>
