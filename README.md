@@ -12,7 +12,7 @@
 | city_block        | string    |null: false              |
 | station           | string    |                         |
 
-- has_many :customer
+- has_many :admins ,thorough: :admin_customers
 - has_many :reviews
 - has_many :calenders
 - has_many :reservers
@@ -35,15 +35,26 @@
 | prefecture_id     | integer   |null: false                  |
 | city_block        | string    |null: false                  |
 | station           | string    |                             |
+| admin_code        | string    |null:false                   |
 | admin             | references|null: false,foreign_key: true|
 
-- belongs_to :admin
+- has_many :admins ,thorough: :admin_customers
 - has_many :reviews
 - has_many :reservers
 - has_many :purchases
 
 *Action Hash*
 - belongs_to_active_hash :prefecture
+
+## admin_customer (中間テーブル)
+| column            | Type      | Options                     |
+| ----------------- | --------- | --------------------------- |
+| admin             | references|null: false,foreign_key: true|
+| customer          | references|null: false,foreign_key: true|
+
+- belongs_to :user
+- belongs_to :customer
+
 
 ## Reviews テーブル (記録投稿機能)
 | column            | Type      | Options                       |

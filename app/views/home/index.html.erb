@@ -1,0 +1,51 @@
+<body>
+<%= render "shared/header"%>
+<%#コンテンツページ一覧表%>
+<div class="content">
+  <h3 class ="title-tag">メニュー</h3>
+  <ul class = "content-lists">
+    <li class="content-list">
+      <%= link_to 'My Page',"#"%><br>
+    </li>
+    <% if admin_signed_in? %>
+    <li class="content-list">
+      <%= link_to 'レッスンノート作成',"#"%><br>
+    </li>
+    <li class="content-list">
+      <%= link_to 'レッスン予約管理',"#"%><br>
+    </li>
+    <li class="content-list">
+      <%= link_to '生徒管理',"#"%><br>
+    </li>
+    <li class="content-list">
+      <%= link_to '支払管理',"#"%><br>
+    </li>
+    <% else %>
+    <li class="content-list">
+      <%= link_to 'レッスン予約',"#"%><br>
+    </li>
+    <li class="content-list">
+      <%= link_to 'お支払い',"#"%><br>
+    </li>
+    <%end%>
+  </ul>
+</div>
+<%#コンテンツページ一覧表%>
+
+<%#掲示板一覧%>
+<%#div class="bulletin-board">
+ <h3 class= "title-tag">掲示板</h3>
+ <ul class="bulletin-board-lists">
+  <% hoge.each do |list| %>
+   <%#li class = bulletin-board-list>
+   <% link_to "#(.id)" do %>
+      <%#p><%= list.text %><%#/p>
+   <%# end %>
+  <%# end %>
+ <%#/ul>
+</div>
+<%#掲示板一覧%>
+
+</body>
+
+
