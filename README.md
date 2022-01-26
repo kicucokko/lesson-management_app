@@ -60,9 +60,9 @@
 | column            | Type      | Options                       |
 | ----------------- | --------- | ----------------------------- |
 | title             | string    | null: false                   |
-| text              | text      | null: false                   |
-| home_work         | text      | null: false                   |
-| information       | text      | null: false                   |
+| text              | string    | null: false                   |
+| home_work         | string    | null: false                   |
+| information       | string    | null: false                   |
 | customer          | references| null: false,foreign_key: true |
 | admin             | references| null: false,foreign_key: true |
 

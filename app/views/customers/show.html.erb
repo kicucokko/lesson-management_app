@@ -1,0 +1,32 @@
+<h1>MyPage</h1>
+   
+  <div class="profile">
+    <h3 class="profile-title">PROFILE</h3>
+    <p>名前</p>
+    <div class = profile-text-kana>
+     <%= @customer.name_kana %>
+    </div>
+    <div class = prifile-text>
+     <%= @customer.name %><br>
+    </div>
+    <p>生年月日</p>
+    <div class = prifile-text>
+     <%= @customer.birth_date %><br>
+    </div>
+    <p>住所</p>
+    <div class = prifile-text>
+     <%= @customer.prefecture.name %><br>
+    </div>
+    <div class = prifile-text>
+     <%= @customer.city_block %><br>
+    </div>
+    <p>最寄駅</p>
+    <div class = prifile-text>
+     <%= @customer.station %><br>
+    </div>
+  </div>
+  <div class="lesson-record">
+   <h3 class="record-title">LESSON RECORD</h3>
+    
+  </div>
+</div
