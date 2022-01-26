@@ -21,4 +21,5 @@ class Admin < ApplicationRecord
   end
   extend ActiveHash::Associations::ActiveRecordExtensions 
   belongs_to :prefecture
+  has_many :reviews
 end

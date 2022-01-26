@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     registrations: 'customers/registrations'
   }
   root to: 'home#index'
+  resources :admins, only:[:show,:edit,:update]
+  resources :customers, only:[:show,:edit,:update] 
+
 
 end

@@ -1,0 +1,38 @@
+<h1>TeatherMyPage</h1>
+  <div class="public-uid-block">
+   <%= @admin.public_uid %>
+   <p>あなたのアカウントパスです。担当生徒へ教えてください</p>
+  </div>
+  <div class="profile">
+    <h3 class="profile-title">PROFILE</h3>
+    <p>名前</p>
+    <div class = profile-text-kana>
+     <%= @admin.name_kana %>
+    </div>
+    <div class = prifile-text>
+     <%= @admin.name %><br>
+    </div>
+    <p>生年月日</p>
+    <div class = prifile-text>
+     <%= @admin.birth_date %><br>
+    </div>
+    <p>住所</p>
+    <div class = prifile-text>
+     <%= @admin.prefecture.name %><br>
+    </div>
+    <div class = prifile-text>
+     <%= @admin.city_block %><br>
+    </div>
+    <p>最寄駅</p>
+    <div class = prifile-text>
+     <%= @admin.station %><br>
+    </div>
+  </div>
+  <div class="lesson-record">
+   <h3 class="record-title">LESSON RECORD</h3>
+    
+  </div>
+ <div class="back">
+  戻る
+ </div>
+</div
