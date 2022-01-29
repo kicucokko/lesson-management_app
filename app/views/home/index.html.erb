@@ -4,10 +4,10 @@
 <div class="content">
   <h3 class ="title-tag">メニュー</h3>
   <ul class = "content-lists">
-    <li class="content-list">
-      <%= link_to 'My Page',"#"%><br>
-    </li>
     <% if admin_signed_in? %>
+    <li class="content-list">
+      <%= link_to 'My Page',admin_path(@admin.id)%><br>
+    </li>
     <li class="content-list">
       <%= link_to 'レッスンノート作成',new_review_path %><br>
     </li>
@@ -20,13 +20,17 @@
     <li class="content-list">
       <%= link_to '支払管理',"#"%><br>
     </li>
-    <% else %>
+    <% elsif customer_signed_in? %>
     <li class="content-list">
+      <%= link_to 'My Page',customer_path(@customer.id)%><br>
+    </li>    <li class="content-list">
       <%= link_to 'レッスン予約',"#"%><br>
     </li>
     <li class="content-list">
       <%= link_to 'お支払い',"#"%><br>
     </li>
+    <% else%>
+    
     <%end%>
   </ul>
 </div>

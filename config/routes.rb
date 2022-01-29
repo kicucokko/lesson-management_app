@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :admins, only:[:show,:edit,:update]
   resources :customers, only:[:show,:edit,:update] 
+
   resources :reviews, only:[:new,:create,:show,:edit,:update,:destroy]
-  
 end
