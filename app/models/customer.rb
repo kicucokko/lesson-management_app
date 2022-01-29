@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :admins, through: :admin_customers
+  has_many :reviews
   with_options presence: true do
     validates :admin_code
     validates :nickname

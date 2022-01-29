@@ -5,6 +5,7 @@ class Admin < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :customers, through: :admin_customers
+  has_many :reviews
   #//自動生成コード
   generate_public_uid column: :public_uid
     validates :unique_code, presence: true, on: :update
